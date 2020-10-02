@@ -1,11 +1,9 @@
 // @ts-check
-import fs from 'fs';
 import '@agoric/zoe/exported';
 import { E } from '@agoric/eventual-send';
 
 // This script takes our contract code, installs it on Zoe, and makes
-// the installation publicly available. Our backend API script will
-// use this installation in a later step.
+// the installation publicly available.
 
 /**
  * @typedef {Object} DeployPowers The special powers that agoric deploy gives us
@@ -52,12 +50,12 @@ export default async function deployContract(
     board,
   } = home;
 
-  // First, we must bundle up our contract code (./src/contract.js)
+  // First, we must bundle up our contract code (./src/otcDesk.js)
   // and install it on Zoe. This returns an installationHandle, an
   // opaque, unforgeable identifier for our contract code that we can
   // reuse again and again to create new, live contract instances.
-  const bundle = await bundleSource(pathResolve(`./src/contract.js`));
-  const installationHandle = await E(zoe).install(bundle);
+  const bundle = await bundleSource(pathResolve(`./src/otcDesk.js`));
+  const installation = await E(zoe).install(bundle);
 
   // Let's share this installationHandle with other people, so that
   // they can run our encouragement contract code by making a contract
@@ -68,26 +66,9 @@ export default async function deployContract(
   // To share the installationHandle, we're going to put it in the
   // board. The board is a shared, on-chain object that maps
   // strings to objects.
-  const CONTRACT_NAME = 'encouragement';
-  const INSTALLATION_HANDLE_BOARD_ID = await E(board).getId(installationHandle);
+  const CONTRACT_NAME = 'OTC Desk';
+  const INSTALLATION_BOARD_ID = await E(board).getId(installation);
   console.log('- SUCCESS! contract code installed on Zoe');
   console.log(`-- Contract Name: ${CONTRACT_NAME}`);
-  console.log(
-    `-- InstallationHandle Board Id: ${INSTALLATION_HANDLE_BOARD_ID}`,
-  );
-
-  // Save the constants somewhere where the UI and api can find it.
-  const dappConstants = {
-    CONTRACT_NAME,
-    INSTALLATION_HANDLE_BOARD_ID,
-  };
-  const defaultsFile = pathResolve(
-    `../ui/public/conf/installationConstants.js`,
-  );
-  console.log('writing', defaultsFile);
-  const defaultsContents = `\
-// GENERATED FROM ${pathResolve('./deploy.js')}
-export default ${JSON.stringify(dappConstants, undefined, 2)};
-`;
-  await fs.promises.writeFile(defaultsFile, defaultsContents);
+  console.log(`-- Installation Board Id: ${INSTALLATION_BOARD_ID}`);
 }
