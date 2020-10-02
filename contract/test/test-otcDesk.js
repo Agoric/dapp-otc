@@ -1,10 +1,7 @@
-// @ts-nocheck
-
-/* global harden */
+// @ts-check
 
 import '@agoric/install-ses';
 import test from 'ava';
-// xxeslint-disable-next-line import/no-extraneous-dependencies
 import bundleSource from '@agoric/bundle-source';
 
 import { E } from '@agoric/eventual-send';
@@ -53,7 +50,6 @@ test('contract with valid offers', async t => {
 
   const moola20 = moolaKit.amountMath.make(20);
 
-  const aliceMagicWandPayment = magicItemKit.mint.mintPayment(magicWandAmount);
   const bobMoolaPayment = moolaKit.mint.mintPayment(moola20);
 
   // Alice's inventory
