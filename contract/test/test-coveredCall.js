@@ -1,10 +1,7 @@
-// @ts-nocheck
-
-/* global harden */
+// @ts-check
 
 import '@agoric/install-ses';
 import test from 'ava';
-// xxeslint-disable-next-line import/no-extraneous-dependencies
 import bundleSource from '@agoric/bundle-source';
 
 import { E } from '@agoric/eventual-send';
@@ -13,7 +10,7 @@ import { makeZoe } from '@agoric/zoe';
 import { makeIssuerKit, MathKind } from '@agoric/ertp';
 import buildManualTimer from '@agoric/zoe/tools/manualTimer';
 
-const coveredCallPath = `${__dirname}/../src/contract`;
+const coveredCallPath = `${__dirname}/../src/coveredCall`;
 
 test('contract with valid offers', async t => {
   // Outside of tests, we should use the long-lived Zoe on the

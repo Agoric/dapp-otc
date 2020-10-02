@@ -1,8 +1,8 @@
 {
-  "name": "otc-desk-contract",
+  "name": "dapp-otc",
   "version": "0.1.0",
   "private": true,
-  "description": "Contract for the dapp-encouragement Agoric Dapp",
+  "description": "OTC Desk contract",
   "scripts": {
     "build": "exit 0",
     "test": "ava --verbose",
@@ -20,7 +20,8 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.0",
     "prettier": "^2.0.2",
-    "ava": "^3.11.1"
+    "ava": "^3.11.1",
+    "@agoric/bundle-source": "*"
   },
   "dependencies": {
     "@agoric/assert": "*",
@@ -84,7 +85,13 @@
       "no-unused-expressions": "off",
       "no-loop-func": "off",
       "no-inner-declarations": "off",
-      "import/prefer-default-export": "off"
+      "import/prefer-default-export": "off",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ]
     }
   },
   "prettier": {
