@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@agoric/acorn-eventual-send/-/acorn-eventual-send-2.0.7.tgz#be1cb784a9426c67526e49b4b8268a543c1a410d"
   integrity sha512-unA3r5LJ1qmPgd4fIogonOaJJkX3uymYsVM392xqmKUKFAaJfNVudPncbwUO3zxv6Uc13+3/lPjlizboZgQNJQ==
 
+"@agoric/acorn-eventual-send@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@agoric/acorn-eventual-send/-/acorn-eventual-send-2.0.8.tgz#0c7ba377597878b3339cede8af8bdb456361f816"
+  integrity sha512-0RXgtEwEwiCZWUsCUyDbbsCHqoGuJfG8SUMv7ffrHsDJ4k5Yf9ELfnCTe4RCmdGBWFsFsKsd5xGiMd4AMzAx+A==
+
 "@agoric/assert@*", "@agoric/assert@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@agoric/assert/-/assert-0.0.9.tgz#24013c3e8b8d3577be2375fccddb3a08f0ebabe3"
@@ -21,6 +26,23 @@
   version "7.9.5"
   resolved "https://registry.yarnpkg.com/@agoric/babel-standalone/-/babel-standalone-7.9.5.tgz#1ca0c17844924199d31e49d6b67e8b2a629b8599"
   integrity sha512-1Aa23oPuRi4kywUyZODo8zey9Gq2NpD2xUnNvgJLoT8orMQRlVOtvbG3JeHq5sjJERlF/q6csg4/P8t8/5IABA==
+
+"@agoric/bundle-source@*":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@agoric/bundle-source/-/bundle-source-1.1.8.tgz#4356a5e56011dc7f9b746c7a077251001f715736"
+  integrity sha512-LLW6XaVdG7xjf8ov9WuIPHcdI1Nt04jjjpOvfwizUbcMet1gsjtCeMc8pxJdNP++l0qMRhKAY4oSzLB6kI5t5A==
+  dependencies:
+    "@agoric/acorn-eventual-send" "^2.0.8"
+    "@agoric/babel-parser" "^7.6.4"
+    "@agoric/transform-eventual-send" "^1.3.3"
+    "@babel/generator" "^7.6.4"
+    "@babel/traverse" "^7.8.3"
+    "@rollup/plugin-commonjs" "^11.0.2"
+    "@rollup/plugin-node-resolve" "^7.1.1"
+    acorn "^7.1.0"
+    esm "^3.2.5"
+    rollup "^1.32.0"
+    source-map "^0.7.3"
 
 "@agoric/bundle-source@^1.1.7":
   version "1.1.7"
@@ -321,6 +343,11 @@
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@agoric/transform-eventual-send/-/transform-eventual-send-1.3.2.tgz#db41af94b8deab072dc264bb457152305e4b18d5"
   integrity sha512-oA8swBuZRb873NagOYP/k6K636mUIUKZX6T0BiyWOF3YluUyy5Zxzfs0Q1xNkyT7F55xclH5SlMrqCrKyDYffA==
+
+"@agoric/transform-eventual-send@^1.3.3":
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/@agoric/transform-eventual-send/-/transform-eventual-send-1.3.3.tgz#c5bd0a29e24d0d6541eb6c8644b01bc78aa766e2"
+  integrity sha512-63pg5w2o0H8Bj5dClBwLK+NpcEBw3OxFOOh90qBHm8tSt6zXmAAjsgclUg5AKxbl2lRg/g69y9BCXCrNgRMQBg==
 
 "@agoric/transform-metering@^1.3.1":
   version "1.3.1"
