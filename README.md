@@ -8,7 +8,7 @@ episode](https://cosmos.network/series/code-with-us/building-a-composable-defi-c
 
 [Watch the replay of the
 workshop](https://www.youtube.com/watch?v=faxrecQgEio):
-[![Building a Composable DeFi Contract](./readme-assets/play.png)]((https://www.youtube.com/watch?v=faxrecQgEio))
+[![Building a Composable DeFi Contract](./readme-assets/play.png)](https://www.youtube.com/watch?v=faxrecQgEio)
 
 
 ## Functionality
