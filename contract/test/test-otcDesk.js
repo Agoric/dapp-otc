@@ -10,7 +10,6 @@ import { makeZoe } from '@agoric/zoe';
 import { makeIssuerKit, MathKind } from '@agoric/ertp';
 import buildManualTimer from '@agoric/zoe/tools/manualTimer';
 
-const coveredCallPath = `${__dirname}/../src/coveredCall`;
 const otcDeskPath = `${__dirname}/../src/otcDesk`;
 
 test('contract with valid offers', async t => {
@@ -22,7 +21,9 @@ test('contract with valid offers', async t => {
   // make quotes for bob. The quotes will be in the form of a free
   // option given to Bob.
 
-  const coveredCallBundle = await bundleSource(coveredCallPath);
+  const coveredCallBundle = await bundleSource(
+    require.resolve('@agoric/zoe/src/contracts/coveredCall'),
+  );
   const coveredCallInstallation = await E(zoe).install(coveredCallBundle);
   t.is(await E(coveredCallInstallation).getBundle(), coveredCallBundle);
 
@@ -126,7 +127,7 @@ test('contract with valid offers', async t => {
   t.deepEqual(details.underlyingAssets, { Magic: magicWandAmount });
   t.deepEqual(details.strikePrice, { Moola: moola20 });
   t.deepEqual(details.timeAuthority, timer);
-  t.deepEqual(details.deadline, 2);
+  t.deepEqual(details.expirationDate, 2);
 
   // E(invitationIssuer).getAmountOf(claimInvitation);
 
@@ -146,7 +147,10 @@ test('contract with valid offers', async t => {
     bobPayments,
   );
 
-  t.is(await E(bobSeat).getOfferResult(), 'Offer was exercised');
+  t.is(
+    await E(bobSeat).getOfferResult(),
+    'The option was exercised. Please collect the assets in your payout.',
+  );
 
   const bobMagicItemPayout = await E(bobSeat).getPayout('UnderlyingAsset');
   const bobMoolaPayout = await E(bobSeat).getPayout('StrikePrice');
