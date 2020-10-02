@@ -1,43 +1,70 @@
-# Encouragement Dapp
+# OTC Desk Contract
 
-The Encouragement Dapp is the simplest [Agoric
-Dapp](https://agoric.com/documentation/dapps/). It
-demonstrates the three important parts of
-a dapp and how they should be connected:
-1. the browser UI (the frontend)
-2. the API server (the backend)
-3. the on-chain contract
+![Building a Composable DeFi Contract](./readme-assets/title.jpg)
 
-This dapp starts a local
-blockchain on your computer, and deploys a basic contract to that
-blockchain. It does not currently deploy or connect to the Agoric testnet.
+This repo contains the OTC Desk contract from the ["Building a
+Composable DeFi Contract" Cosmos Code With Us
+episode](https://cosmos.network/series/code-with-us/building-a-composable-defi-contract).
 
-This particular dapp UI is written in vanilla JS for simplicity (as
-opposed to using a framework).
+[Watch the replay of the
+workshop](https://www.youtube.com/watch?v=faxrecQgEio):
+[![Building a Composable DeFi Contract](./readme-assets/play.png)]((https://www.youtube.com/watch?v=faxrecQgEio))
+
 
 ## Functionality
 
-The Encouragement Dapp:
+The OTC Desk contract is based on an idea by Haseeb Qureshi in
+["Unbundling Uniswap: The Future of On-Chain Market Making"](https://medium.com/dragonfly-research/unbundling-uniswap-the-future-of-on-chain-market-making-1c7d6948d570)
 
-1. Subscribes to contract notifications via the API server
-2. Accesses your Agoric wallet, and
-3. At the user's request, either:
+![OTC Desk](./readme-assets/contract.svg)
 
-    1. requests some free encouragement, or
-    2. proposes (via the user's wallet and Zoe) exchanging a Tip for
-       some Encouragement (the tip is not yet sent to the Zoe
-       contract, but you will still get some encouragement.)
+In this OTC Desk Contract:
+* Trades are atomic and “trustless”
+* Creator keeps all profits
+* Can use any pricing mechanism
+* Can stop quoting when market is crazy
+* Can trade fungible and non-fungible digital assets
+* Uses another contract (the [covered call option contract](https://github.com/Agoric/agoric-sdk/blob/master/packages/zoe/src/contracts/coveredCall.js)) as a reusable component
 
-To learn more about how to build Agoric Dapps, please see the [Dapp Guide](https://agoric.com/documentation/dapps/).
+This contract runs on the Agoric Stack:
 
-Here's the interface:
+![Agoric Stack](./readme-assets/stack.svg)
 
-![Screenshot Before Encouragement](readme-assets/before.png)
 
-and after we click the "Encourage Me!" button:
+## Run the Tests
 
-![Screenshot After Encouragement](readme-assets/after.png)
+Unlike the basic Encouragement Dapp, this dapp only includes the
+contract portion. It does not include the browser UI or API server.
+However, it does include tests for the contract and the deploy script
+to install the contract code on Zoe.
 
-## TODO
+To run the tests:
 
-Things we need to fix are listed in [the Github issues for this repository](https://github.com/Agoric/dapp-encouragement/issues).
+```shell
+yarn test
+```
+
+## Install the Code on Zoe
+
+To install the OTC Desk code on your local version of Zoe, run:
+
+```shell
+agoric install
+agoric start --reset
+```
+and then in another terminal tab:
+
+```shell
+agoric deploy contract/deploy.js
+```
+
+You will see something like the following if successful:
+
+```
+Open CapTP connection to ws://127.0.0.1:8000/private/captp...o
+agoric: deploy: running contract/deploy.js
+- SUCCESS! contract code installed on Zoe
+-- Contract Name: OTC Desk
+-- Installation Board Id: 1456154132
+```
+
