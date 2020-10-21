@@ -5,7 +5,7 @@ import test from 'ava';
 import bundleSource from '@agoric/bundle-source';
 
 import { E } from '@agoric/eventual-send';
-import { makeFakeVatAdmin } from '@agoric/zoe/test/unitTests/contracts/fakeVatAdmin';
+import { makeFakeVatAdmin } from '@agoric/zoe/src/contractFacet/fakeVatAdmin';
 import { makeZoe } from '@agoric/zoe';
 import { makeIssuerKit, MathKind } from '@agoric/ertp';
 import buildManualTimer from '@agoric/zoe/tools/manualTimer';
@@ -13,7 +13,7 @@ import buildManualTimer from '@agoric/zoe/tools/manualTimer';
 test('contract with valid offers', async t => {
   // Outside of tests, we should use the long-lived Zoe on the
   // testnet. In this test, we must create a new Zoe.
-  const zoe = makeZoe(makeFakeVatAdmin());
+  const zoe = makeZoe(makeFakeVatAdmin().admin);
 
   // Alice is going to want to trade a magical wand item for some fake
   // currency, moola
