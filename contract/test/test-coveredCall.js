@@ -72,7 +72,7 @@ test('contract with valid offers', async t => {
     exit: {
       afterDeadline: {
         timer,
-        deadline: 2,
+        deadline: 2n,
       },
     },
   });
@@ -103,7 +103,7 @@ test('contract with valid offers', async t => {
   t.deepEqual(details.underlyingAssets, { UnderlyingAsset: magicWandAmount });
   t.deepEqual(details.strikePrice, { StrikePrice: moola20 });
   t.deepEqual(details.timeAuthority, timer);
-  t.deepEqual(details.expirationDate, 2);
+  t.deepEqual(details.expirationDate, 2n);
 
   // E(invitationIssuer).getAmountOf(claimInvitation);
 

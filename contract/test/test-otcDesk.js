@@ -104,7 +104,7 @@ test('contract with valid offers', async t => {
   const assets = { Magic: magicWandAmount };
   const price = { Moola: moola20 };
   const timeAuthority = timer;
-  const deadline = 2;
+  const deadline = 2n;
 
   const bobInvitation = await E(creatorFacet).makeQuote(
     assets,
@@ -127,7 +127,7 @@ test('contract with valid offers', async t => {
   t.deepEqual(details.underlyingAssets, { Magic: magicWandAmount });
   t.deepEqual(details.strikePrice, { Moola: moola20 });
   t.deepEqual(details.timeAuthority, timer);
-  t.deepEqual(details.expirationDate, 2);
+  t.deepEqual(details.expirationDate, 2n);
 
   // E(invitationIssuer).getAmountOf(claimInvitation);
 
