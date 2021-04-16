@@ -1,6 +1,5 @@
 // @ts-check
 import '@agoric/zoe/exported';
-import harden from '@agoric/harden';
 import {
   trade,
   saveAllIssuers,
@@ -11,7 +10,7 @@ import {
 import { E } from '@agoric/eventual-send';
 
 /**
-
+ 
  * @param {ContractFacet} zcf
  *
  */
