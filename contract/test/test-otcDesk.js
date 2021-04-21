@@ -33,7 +33,7 @@ test('contract with valid offers', async t => {
   t.is(await E(otcDeskInstallation).getBundle(), otcDeskBundle);
 
   // Create a magical item NFT mint
-  const magicItemKit = makeIssuerKit('magicItem', MathKind.STRING_SET);
+  const magicItemKit = makeIssuerKit('magicItem', MathKind.SET);
   // value is i.e. ['sword1', 'magicWand8281']
 
   // Create fungible tokens
