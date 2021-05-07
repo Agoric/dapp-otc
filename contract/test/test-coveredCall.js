@@ -8,7 +8,7 @@ import bundleSource from '@agoric/bundle-source';
 import { E } from '@agoric/eventual-send';
 import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin';
 import { makeZoe } from '@agoric/zoe';
-import { makeIssuerKit, MathKind, amountMath } from '@agoric/ertp';
+import { makeIssuerKit, AssetKind, amountMath } from '@agoric/ertp';
 import buildManualTimer from '@agoric/zoe/tools/manualTimer';
 
 test('contract with valid offers', async t => {
@@ -33,7 +33,7 @@ test('contract with valid offers', async t => {
   t.is(await E(coveredCallInstallation).getBundle(), coveredCallBundle);
 
   // Create a magical item NFT mint
-  const magicItemKit = makeIssuerKit('magicItem', MathKind.SET);
+  const magicItemKit = makeIssuerKit('magicItem', AssetKind.SET);
   // value is i.e. ['sword1', 'magicWand8281']
 
   // Create fungible tokens
@@ -139,7 +139,7 @@ test('contract with valid offers', async t => {
 
   t.deepEqual(
     await moolaKit.issuer.getAmountOf(bobMoolaPayout),
-    amountMath.makeEmpty(moolaKit.brand, MathKind.NAT),
+    amountMath.makeEmpty(moolaKit.brand, AssetKind.NAT),
   );
 
   // Alice gets what she wanted
@@ -149,7 +149,7 @@ test('contract with valid offers', async t => {
 
   t.deepEqual(
     await magicItemKit.issuer.getAmountOf(aliceMagicItemPayout),
-    amountMath.makeEmpty(magicItemKit.brand, MathKind.SET),
+    amountMath.makeEmpty(magicItemKit.brand, AssetKind.SET),
   );
 
   t.deepEqual(await moolaKit.issuer.getAmountOf(aliceMoolaPayout), moola20);
