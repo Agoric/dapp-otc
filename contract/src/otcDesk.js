@@ -1,7 +1,6 @@
 // @ts-check
 import '@agoric/zoe/exported';
 import {
-  trade,
   saveAllIssuers,
   assertProposalShape,
   withdrawFromSeat,
@@ -25,14 +24,10 @@ const start = async zcf => {
       /** @type OfferHandler */
       const addInventory = seat => {
         assertProposalShape(seat, { want: {} });
-        trade(
-          zcf,
-          {
-            seat: marketMakerSeat,
-            gains: seat.getCurrentAllocation(),
-          },
-          { seat, gains: {} },
+        marketMakerSeat.incrementBy(
+          seat.decrementBy(seat.getCurrentAllocation()),
         );
+        zcf.reallocate(marketMakerSeat, seat);
         seat.exit();
         return 'Inventory added';
       };
@@ -41,14 +36,8 @@ const start = async zcf => {
     makeRemoveInventoryInvitation: () => {
       /** @type OfferHandler */
       const removeInventory = seat => {
-        trade(
-          zcf,
-          {
-            seat: marketMakerSeat,
-            gains: {},
-          },
-          { seat, gains: seat.getProposal().want },
-        );
+        seat.incrementBy(marketMakerSeat.decrementBy(seat.getProposal().want));
+        zcf.reallocate(seat, marketMakerSeat);
         seat.exit();
         return 'Inventory removed';
       };
