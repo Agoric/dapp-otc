@@ -36,9 +36,8 @@ const start = async zcf => {
     makeRemoveInventoryInvitation: () => {
       /** @type OfferHandler */
       const removeInventory = seat => {
-     const { want: seatWant } = seat.getProposal();
-      const removeInventory = seat => {
-          seat.incrementBy(marketMakerSeat.decrementBy(seatWant));
+        const { want: seatWant } = seat.getProposal();
+        seat.incrementBy(marketMakerSeat.decrementBy(seatWant));
         zcf.reallocate(seat, marketMakerSeat);
         seat.exit();
         return 'Inventory removed';
