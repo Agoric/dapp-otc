@@ -7,7 +7,7 @@ import bundleSource from '@agoric/bundle-source';
 
 import { E } from '@agoric/eventual-send';
 import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin';
-import { makeZoe } from '@agoric/zoe';
+import { makeZoeKit } from '@agoric/zoe';
 import { makeIssuerKit, AssetKind, amountMath } from '@agoric/ertp';
 import buildManualTimer from '@agoric/zoe/tools/manualTimer';
 
@@ -16,7 +16,9 @@ const otcDeskPath = `${__dirname}/../src/otcDesk`;
 test('contract with valid offers', async t => {
   // Outside of tests, we should use the long-lived Zoe on the
   // testnet. In this test, we must create a new Zoe.
-  const zoe = makeZoe(makeFakeVatAdmin().admin);
+  const { zoeService } = makeZoeKit(makeFakeVatAdmin().admin);
+  const feePurse = E(zoeService).makeFeePurse();
+  const zoe = E(zoeService).bindDefaultFeePurse(feePurse);
 
   // Alice wants to be able to add inventory, remove inventory, and
   // make quotes for bob. The quotes will be in the form of a free
