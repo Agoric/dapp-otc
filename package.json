@@ -9,7 +9,9 @@
     "contract",
     "_agstate/agoric-servers"
   ],
-  "parsers": {"js": "mjs"},
+  "parsers": {
+    "js": "mjs"
+  },
   "devDependencies": {
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.0.1",
