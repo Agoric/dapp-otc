@@ -646,6 +646,13 @@
   dependencies:
     arrify "^1.0.1"
 
+"@endo/eslint-plugin@^0.3.12":
+  version "0.3.12"
+  resolved "https://registry.yarnpkg.com/@endo/eslint-plugin/-/eslint-plugin-0.3.12.tgz#7708a3d44be033e9ce4e9bd6a563dc97250cffec"
+  integrity sha512-0DbILeOj2Mhl7TwtHkQCGLP40njqlbKflXrSiYcfveRi8eFs/ZFHr+TvnaC7Mg6evbxDG2wcLmQBNLvgKGxnYg==
+  dependencies:
+    requireindex "~1.1.0"
+
 "@eslint/eslintrc@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.0.tgz#99cc0a0584d72f1df38b900fb062ba995f395547"
@@ -665,6 +672,13 @@
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
   integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
+
+"@jessie.js/eslint-plugin@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@jessie.js/eslint-plugin/-/eslint-plugin-0.1.3.tgz#4df87d639dbc8ffb4c0b0168de1311b7f522cc75"
+  integrity sha512-wyx/Wz/5gx87GRijQ3U6XGBYh9AnJdkw5pNgz0xZrLv6a6+l/t1p/7AeqYeolu5nDPuic/jSxfybkcWgYaP7UA==
+  dependencies:
+    requireindex "~1.1.0"
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -4246,6 +4260,11 @@ require-main-filename@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-2.0.0.tgz#d0b329ecc7cc0f61649f62215be69af54aa8989b"
   integrity sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
+
+requireindex@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.1.0.tgz#e5404b81557ef75db6e49c5a72004893fe03e162"
+  integrity sha1-5UBLgVV+91225JxacgBIk/4D4WI=
 
 resolve-cwd@^3.0.0:
   version "3.0.0"

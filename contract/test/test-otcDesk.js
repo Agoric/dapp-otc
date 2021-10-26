@@ -43,15 +43,15 @@ test('contract with valid offers', async t => {
   const moolaKit = makeIssuerKit('moola');
   // value is i.e. 20, or 44
 
-  const magicWandAmount = AmountMath.make(magicItemKit.brand, harden([
-    'magicWand8281',
-  ]));
+  const magicWandAmount = AmountMath.make(
+    magicItemKit.brand,
+    harden(['magicWand8281']),
+  );
 
-  const magicItemsAmount = AmountMath.make(magicItemKit.brand, harden([
-    'magicWand8281',
-    'sword1',
-    'sword2',
-  ]));
+  const magicItemsAmount = AmountMath.make(
+    magicItemKit.brand,
+    harden(['magicWand8281', 'sword1', 'sword2']),
+  );
 
   const moola1000 = AmountMath.make(moolaKit.brand, 1000n);
 

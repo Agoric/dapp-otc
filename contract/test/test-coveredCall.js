@@ -42,9 +42,10 @@ test('contract with valid offers', async t => {
   const moolaKit = makeIssuerKit('moola');
   // value is i.e. 20, or 44
 
-  const magicWandAmount = AmountMath.make(magicItemKit.brand, harden([
-    'magicWand8281',
-  ]));
+  const magicWandAmount = AmountMath.make(
+    magicItemKit.brand,
+    harden(['magicWand8281']),
+  );
   const moola20 = AmountMath.make(moolaKit.brand, 20n);
   const aliceMagicWandPayment = magicItemKit.mint.mintPayment(magicWandAmount);
   const bobMoolaPayment = moolaKit.mint.mintPayment(moola20);
