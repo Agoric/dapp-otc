@@ -1,4 +1,5 @@
 // @ts-check
+
 /* global require __dirname */
 
 import '@agoric/zoe/tools/prepare-test-env';
@@ -8,7 +9,7 @@ import bundleSource from '@agoric/bundle-source';
 import { E } from '@agoric/eventual-send';
 import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin';
 import { makeZoeKit } from '@agoric/zoe';
-import { makeIssuerKit, AssetKind, amountMath } from '@agoric/ertp';
+import { makeIssuerKit, AssetKind, AmountMath } from '@agoric/ertp';
 import buildManualTimer from '@agoric/zoe/tools/manualTimer';
 
 const otcDeskPath = `${__dirname}/../src/otcDesk`;
@@ -42,19 +43,19 @@ test('contract with valid offers', async t => {
   const moolaKit = makeIssuerKit('moola');
   // value is i.e. 20, or 44
 
-  const magicWandAmount = amountMath.make(magicItemKit.brand, [
+  const magicWandAmount = AmountMath.make(magicItemKit.brand, harden([
     'magicWand8281',
-  ]);
+  ]));
 
-  const magicItemsAmount = amountMath.make(magicItemKit.brand, [
+  const magicItemsAmount = AmountMath.make(magicItemKit.brand, harden([
     'magicWand8281',
     'sword1',
     'sword2',
-  ]);
+  ]));
 
-  const moola1000 = amountMath.make(moolaKit.brand, 1000n);
+  const moola1000 = AmountMath.make(moolaKit.brand, 1000n);
 
-  const moola20 = amountMath.make(moolaKit.brand, 20n);
+  const moola20 = AmountMath.make(moolaKit.brand, 20n);
 
   const bobMoolaPayment = moolaKit.mint.mintPayment(moola20);
 
@@ -167,14 +168,14 @@ test('contract with valid offers', async t => {
 
   t.deepEqual(
     await moolaKit.issuer.getAmountOf(bobMoolaPayout),
-    amountMath.makeEmpty(moolaKit.brand, AssetKind.NAT),
+    AmountMath.makeEmpty(moolaKit.brand, AssetKind.NAT),
   );
 
   const removeInventoryInvitation = await E(
     creatorFacet,
   ).makeRemoveInventoryInvitation();
 
-  const moola2 = amountMath.make(moolaKit.brand, 2n);
+  const moola2 = AmountMath.make(moolaKit.brand, 2n);
 
   const removeInventoryProposal = harden({
     want: { Moola: moola2 },
