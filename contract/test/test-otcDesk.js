@@ -1,18 +1,21 @@
 // @ts-check
 
+// TODO Remove babel-standalone preinitialization
+// https://github.com/endojs/endo/issues/768
+import '@agoric/babel-standalone';
+
 import '@agoric/zoe/tools/prepare-test-env.js';
 import test from 'ava';
-import bundleSource from '@agoric/bundle-source';
+import bundleSource from '@endo/bundle-source';
 
 import url from 'url';
 import { resolve as importMetaResolve } from 'import-meta-resolve';
 
-import { E } from '@agoric/eventual-send';
+import { E } from '@endo/far';
 import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import { makeIssuerKit, AssetKind, AmountMath } from '@agoric/ertp';
 import buildManualTimer from '@agoric/zoe/tools/manualTimer.js';
-
 
 test('contract with valid offers', async t => {
   const otcDeskUrl = await importMetaResolve('../src/otcDesk.js', import.meta.url);

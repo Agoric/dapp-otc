@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "agoric": "beta",
-    "@agoric/bundle-source": "beta",
+    "@endo/bundle-source": "^2.0.7",
     "ava": "^3.11.1",
     "eslint": "^7.23.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -27,14 +27,12 @@
     "prettier": "^2.0.2"
   },
   "dependencies": {
-    "@agoric/assert": "beta",
     "@agoric/ertp": "beta",
-    "@agoric/eventual-send": "beta",
-    "@agoric/harden": "^0.0.8",
-    "@agoric/install-ses": "*",
     "@agoric/notifier": "beta",
     "@agoric/store": "beta",
-    "@agoric/zoe": "beta"
+    "@agoric/zoe": "beta",
+    "@endo/far": "^0.1.7",
+    "@endo/init": "^0.5.35"
   },
   "ava": {
     "files": [

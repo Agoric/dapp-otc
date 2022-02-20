@@ -6,7 +6,7 @@ import {
   withdrawFromSeat,
   depositToSeat,
 } from '@agoric/zoe/src/contractSupport/index.js';
-import { E } from '@agoric/eventual-send';
+import { E } from '@endo/far';
 
 /**
  
