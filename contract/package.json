@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "OTC Desk contract",
-  "parsers": {
-    "js": "mjs"
-  },
+  "type": "module",
   "scripts": {
     "build": "exit 0",
     "test": "ava --verbose",
@@ -36,15 +34,11 @@
     "@agoric/install-ses": "*",
     "@agoric/notifier": "*",
     "@agoric/store": "*",
-    "@agoric/zoe": "*",
-    "esm": "^3.2.5"
+    "@agoric/zoe": "*"
   },
   "ava": {
     "files": [
       "test/**/test-*.js"
-    ],
-    "require": [
-      "esm"
     ],
     "timeout": "10m"
   },

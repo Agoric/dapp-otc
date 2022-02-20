@@ -1,20 +1,23 @@
 // @ts-check
 
-/* global require __dirname */
-
-import '@agoric/zoe/tools/prepare-test-env';
+import '@agoric/zoe/tools/prepare-test-env.js';
 import test from 'ava';
 import bundleSource from '@agoric/bundle-source';
 
+import url from 'url';
+import { resolve as importMetaResolve } from 'import-meta-resolve';
+
 import { E } from '@agoric/eventual-send';
-import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin';
+import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import { makeIssuerKit, AssetKind, AmountMath } from '@agoric/ertp';
-import buildManualTimer from '@agoric/zoe/tools/manualTimer';
+import buildManualTimer from '@agoric/zoe/tools/manualTimer.js';
 
-const otcDeskPath = `${__dirname}/../src/otcDesk`;
 
 test('contract with valid offers', async t => {
+  const otcDeskUrl = await importMetaResolve('../src/otcDesk.js', import.meta.url);
+  const otcDeskPath = url.fileURLToPath(otcDeskUrl);
+
   // Outside of tests, we should use the long-lived Zoe on the
   // testnet. In this test, we must create a new Zoe.
   const { zoeService } = makeZoeKit(makeFakeVatAdmin().admin);
@@ -25,9 +28,12 @@ test('contract with valid offers', async t => {
   // make quotes for bob. The quotes will be in the form of a free
   // option given to Bob.
 
-  const coveredCallBundle = await bundleSource(
-    require.resolve('@agoric/zoe/src/contracts/coveredCall'),
+  const coveredCallUrl = await importMetaResolve(
+    '@agoric/zoe/src/contracts/coveredCall.js',
+    import.meta.url,
   );
+  const coveredCallPath = url.fileURLToPath(coveredCallUrl);
+  const coveredCallBundle = await bundleSource(coveredCallPath);
   const coveredCallInstallation = await E(zoe).install(coveredCallBundle);
   t.is(await E(coveredCallInstallation).getBundle(), coveredCallBundle);
 
