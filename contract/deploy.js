@@ -1,6 +1,6 @@
 // @ts-check
-import '@agoric/zoe/exported';
-import { E } from '@agoric/eventual-send';
+import '@agoric/zoe/exported.js';
+import { E } from '@agoric/eventual-send.js';
 
 // This script takes our contract code, installs it on Zoe, and makes
 // the installation publicly available.

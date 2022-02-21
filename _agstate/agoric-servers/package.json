@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Agoric server instances for dapp-encouragement",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "exit 0",
     "test": "exit 0",
@@ -12,6 +13,6 @@
   "author": "Agoric",
   "license": "Apache-2.0",
   "dependencies": {
-    "@agoric/cosmic-swingset": "*"
+    "@agoric/cosmic-swingset": "beta"
   }
 }

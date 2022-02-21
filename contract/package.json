@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "OTC Desk contract",
-  "parsers": {
-    "js": "mjs"
-  },
+  "type": "module",
   "scripts": {
     "build": "exit 0",
     "test": "ava --verbose",
@@ -16,8 +14,8 @@
     "lint-check-jessie": "eslint -c '.eslintrc-jessie.js' '**/*.{js,jsx}'"
   },
   "devDependencies": {
-    "agoric": "*",
-    "@agoric/bundle-source": "*",
+    "agoric": "beta",
+    "@endo/bundle-source": "^2.0.7",
     "ava": "^3.11.1",
     "eslint": "^7.23.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -29,22 +27,16 @@
     "prettier": "^2.0.2"
   },
   "dependencies": {
-    "@agoric/assert": "*",
-    "@agoric/ertp": "*",
-    "@agoric/eventual-send": "*",
-    "@agoric/harden": "^0.0.8",
-    "@agoric/install-ses": "*",
-    "@agoric/notifier": "*",
-    "@agoric/store": "*",
-    "@agoric/zoe": "*",
-    "esm": "^3.2.5"
+    "@agoric/ertp": "beta",
+    "@agoric/notifier": "beta",
+    "@agoric/store": "beta",
+    "@agoric/zoe": "beta",
+    "@endo/far": "^0.1.7",
+    "@endo/init": "^0.5.35"
   },
   "ava": {
     "files": [
       "test/**/test-*.js"
-    ],
-    "require": [
-      "esm"
     ],
     "timeout": "10m"
   },

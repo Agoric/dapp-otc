@@ -1,12 +1,12 @@
 // @ts-check
-import '@agoric/zoe/exported';
+import '@agoric/zoe/exported.js';
 import {
   saveAllIssuers,
   assertProposalShape,
   withdrawFromSeat,
   depositToSeat,
-} from '@agoric/zoe/src/contractSupport';
-import { E } from '@agoric/eventual-send';
+} from '@agoric/zoe/src/contractSupport/index.js';
+import { E } from '@endo/far';
 
 /**
  

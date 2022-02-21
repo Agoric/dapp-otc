@@ -1,15 +1,21 @@
 // @ts-check
-/* global require */
 
-import '@agoric/zoe/tools/prepare-test-env';
+// TODO Remove babel-standalone preinitialization
+// https://github.com/endojs/endo/issues/768
+import '@agoric/babel-standalone';
+
+import '@agoric/zoe/tools/prepare-test-env.js';
 import test from 'ava';
-import bundleSource from '@agoric/bundle-source';
+import bundleSource from '@endo/bundle-source';
 
-import { E } from '@agoric/eventual-send';
-import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin';
+import url from 'url';
+import { resolve as importMetaResolve } from 'import-meta-resolve';
+
+import { E } from '@endo/far';
+import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import { makeIssuerKit, AssetKind, AmountMath } from '@agoric/ertp';
-import buildManualTimer from '@agoric/zoe/tools/manualTimer';
+import buildManualTimer from '@agoric/zoe/tools/manualTimer.js';
 
 test('contract with valid offers', async t => {
   // Outside of tests, we should use the long-lived Zoe on the
@@ -26,9 +32,13 @@ test('contract with valid offers', async t => {
 
   // Covered call option is the right but not the obligation to buy
   // the magical wand.
-  const coveredCallBundle = await bundleSource(
-    require.resolve('@agoric/zoe/src/contracts/coveredCall'),
+
+  const coveredCallUrl = await importMetaResolve(
+    '@agoric/zoe/src/contracts/coveredCall.js',
+    import.meta.url,
   );
+  const coveredCallPath = url.fileURLToPath(coveredCallUrl);
+  const coveredCallBundle = await bundleSource(coveredCallPath);
 
   const coveredCallInstallation = await E(zoe).install(coveredCallBundle);
 
