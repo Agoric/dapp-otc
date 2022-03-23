@@ -31,6 +31,7 @@
     "@agoric/notifier": "beta",
     "@agoric/store": "beta",
     "@agoric/zoe": "beta",
+    "@endo/eventual-send": "^0.14.6",
     "@endo/far": "^0.1.7",
     "@endo/init": "^0.5.35"
   },
