@@ -2169,7 +2169,7 @@ eslint@^7.23.0:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-esm@agoric-labs/esm#Agoric-built, "esm@github:agoric-labs/esm#Agoric-built":
+esm@agoric-labs/esm#Agoric-built:
   version "3.2.25"
   resolved "https://codeload.github.com/agoric-labs/esm/tar.gz/3603726ad4636b2f865f463188fcaade6375638e"
 
@@ -3850,7 +3850,7 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
-"recast@github:agoric-labs/recast#Agoric-built":
+recast@agoric-labs/recast#Agoric-built:
   version "0.20.5"
   resolved "https://codeload.github.com/agoric-labs/recast/tar.gz/879398a55cd50a53ade179de203706a25c53fb49"
   dependencies:
