@@ -38,7 +38,7 @@ test('contract with valid offers', async t => {
 
   const coveredCallInstallation = await E(zoe).install(coveredCallBundle);
 
-  t.is(await E(coveredCallInstallation).getBundle(), coveredCallBundle);
+  t.deepEqual(await E(coveredCallInstallation).getBundle(), coveredCallBundle);
 
   // Create a magical item NFT mint
   const magicItemKit = makeIssuerKit('magicItem', AssetKind.SET);
