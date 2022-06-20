@@ -37,11 +37,11 @@ test('contract with valid offers', async t => {
   const coveredCallPath = url.fileURLToPath(coveredCallUrl);
   const coveredCallBundle = await bundleSource(coveredCallPath);
   const coveredCallInstallation = await E(zoe).install(coveredCallBundle);
-  t.is(await E(coveredCallInstallation).getBundle(), coveredCallBundle);
+  t.deepEqual(await E(coveredCallInstallation).getBundle(), coveredCallBundle);
 
   const otcDeskBundle = await bundleSource(otcDeskPath);
   const otcDeskInstallation = await E(zoe).install(otcDeskBundle);
-  t.is(await E(otcDeskInstallation).getBundle(), otcDeskBundle);
+  t.deepEqual(await E(otcDeskInstallation).getBundle(), otcDeskBundle);
 
   // Create a magical item NFT mint
   const magicItemKit = makeIssuerKit('magicItem', AssetKind.SET);
