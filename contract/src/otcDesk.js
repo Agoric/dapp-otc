@@ -6,7 +6,7 @@ import {
   withdrawFromSeat,
   depositToSeat,
 } from '@agoric/zoe/src/contractSupport/index.js';
-import { E } from '@endo/far';
+import { E, Far } from '@endo/far';
 
 /**
  
@@ -18,7 +18,7 @@ const start = async zcf => {
   const { zcfSeat: marketMakerSeat } = zcf.makeEmptySeatKit();
   const zoe = zcf.getZoeService();
 
-  const creatorFacet = {
+  const creatorFacet = Far('creator', {
     makeAddInventoryInvitation: async issuerKeywordRecord => {
       await saveAllIssuers(zcf, issuerKeywordRecord);
       /** @type OfferHandler */
@@ -75,7 +75,7 @@ const start = async zcf => {
       const option = E(sellUserSeat).getOfferResult();
       return option;
     },
-  };
+  });
   return harden({ creatorFacet });
 };
 
