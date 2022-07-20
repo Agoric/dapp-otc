@@ -1507,7 +1507,7 @@ buffer@^5.5.0:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
 
-"bufferfromfile@github:agoric-labs/BufferFromFile#Agoric-built":
+bufferfromfile@agoric-labs/BufferFromFile#Agoric-built:
   version "0.4.360"
   resolved "https://codeload.github.com/agoric-labs/BufferFromFile/tar.gz/620ad350bfa6789b297ebab937e22d582fbd19ba"
   dependencies:
@@ -2394,7 +2394,7 @@ eslint@^7.32.0:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-"esm@github:agoric-labs/esm#Agoric-built":
+esm@agoric-labs/esm#Agoric-built:
   version "3.2.25"
   resolved "https://codeload.github.com/agoric-labs/esm/tar.gz/3603726ad4636b2f865f463188fcaade6375638e"
 
@@ -4323,7 +4323,7 @@ recast@agoric-labs/recast#Agoric-built:
   version "0.20.5"
   resolved "https://codeload.github.com/agoric-labs/recast/tar.gz/879398a55cd50a53ade179de203706a25c53fb49"
   dependencies:
-    ast-types agoric-labs/ast-types#Agoric-built
+    ast-types "github:agoric-labs/ast-types#Agoric-built"
     esprima "~4.0.0"
     source-map "~0.6.1"
     tslib "^2.0.1"
