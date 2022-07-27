@@ -9,7 +9,7 @@ import {
 import { E, Far } from '@endo/far';
 
 /**
- 
+
  * @param {ContractFacet} zcf
  *
  */
@@ -68,7 +68,7 @@ const start = async zcf => {
       E(sellUserSeat)
         .getPayouts()
         .then(async payouts => {
-          const amounts = await E(sellUserSeat).getCurrentAllocation();
+          const amounts = await E(sellUserSeat).getCurrentAllocationJig();
           await depositToSeat(zcf, marketMakerSeat, amounts, payouts);
         });
 
