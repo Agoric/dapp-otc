@@ -68,9 +68,7 @@ const start = async zcf => {
       E(sellUserSeat)
         .getPayouts()
         .then(async payouts => {
-          // TODO Stop using getCurrentAllocationJig.
-          // See https://github.com/Agoric/agoric-sdk/issues/5833
-          const amounts = await E(sellUserSeat).getCurrentAllocationJig();
+          const amounts = await E(sellUserSeat).getFinalAllocation();
           await depositToSeat(zcf, marketMakerSeat, amounts, payouts);
         });
 
