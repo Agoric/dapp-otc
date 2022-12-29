@@ -16,7 +16,7 @@ import buildManualTimer from '@agoric/zoe/tools/manualTimer.js';
 test('contract with valid offers', async t => {
   // Outside of tests, we should use the long-lived Zoe on the
   // testnet. In this test, we must create a new Zoe.
-  const { zoeService: zoe } = makeZoeKit(makeFakeVatAdmin().admin);
+  const { zoeServices: { zoeService: zoe } } = makeZoeKit(makeFakeVatAdmin().admin);
 
   // Alice is going to want to trade a magical wand item for some fake
   // currency, moola
