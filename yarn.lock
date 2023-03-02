@@ -1317,7 +1317,7 @@ ast-types-flow@^0.0.7:
   resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
   integrity sha1-9wtzXGvKGlycItmCw+Oef+ujva0=
 
-ast-types@agoric-labs/ast-types#Agoric-built:
+"ast-types@github:agoric-labs/ast-types#Agoric-built":
   version "0.15.2"
   resolved "https://codeload.github.com/agoric-labs/ast-types/tar.gz/258b7d6a4be531569352aedb00f767e6d1f754d2"
   dependencies:

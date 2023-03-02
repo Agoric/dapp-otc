@@ -105,13 +105,17 @@ test('contract with valid offers', async t => {
   // claimedInvitation === option
   const claimedInvitation = await E(invitationIssuer).claim(bobInvitation);
   const details = await E(zoe).getInvitationDetails(claimedInvitation);
+  const { customDetails } = details;
+  assert(typeof customDetails === 'object');
   // Bob checks that the code of the contract he is invited to is what
   // he expects
   t.is(details.installation, coveredCallInstallation);
-  t.deepEqual(details.underlyingAssets, { UnderlyingAsset: magicWandAmount });
-  t.deepEqual(details.strikePrice, { StrikePrice: moola20 });
-  t.deepEqual(details.timeAuthority, timer);
-  t.deepEqual(details.expirationDate, 2n);
+  t.deepEqual(customDetails.underlyingAssets, {
+    UnderlyingAsset: magicWandAmount,
+  });
+  t.deepEqual(customDetails.strikePrice, { StrikePrice: moola20 });
+  t.deepEqual(customDetails.timeAuthority, timer);
+  t.deepEqual(customDetails.expirationDate, 2n);
 
   // E(invitationIssuer).getAmountOf(claimInvitation);
 
