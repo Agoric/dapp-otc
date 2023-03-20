@@ -11,6 +11,10 @@ import { E } from '@endo/far';
 import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
 import { makeZoeKit } from '@agoric/zoe';
 import { makeIssuerKit, AssetKind, AmountMath } from '@agoric/ertp';
+// TODO `claim`,`combine`, `split`, and `splitMany' are deprecated.
+// Stop using them.
+import { claim } from '@agoric/ertp/src/legacy-payment-helpers.js';
+
 import buildManualTimer from '@agoric/zoe/tools/manualTimer.js';
 
 test('contract with valid offers', async t => {
@@ -66,9 +70,8 @@ test('contract with valid offers', async t => {
   const bobMoolaPayment = moolaKit.mint.mintPayment(moola20);
 
   // Alice's inventory
-  const aliceMagicItemsPayment = magicItemKit.mint.mintPayment(
-    magicItemsAmount,
-  );
+  const aliceMagicItemsPayment =
+    magicItemKit.mint.mintPayment(magicItemsAmount);
   const aliceMoola1000Payment = moolaKit.mint.mintPayment(moola1000);
 
   const { creatorFacet } = await E(zoe).startInstance(
@@ -128,10 +131,11 @@ test('contract with valid offers', async t => {
   // Invitation for Bob, an option
   t.truthy(await E(invitationIssuer).isLive(bobInvitation));
 
+  const recoveryPurse = E(invitationIssuer).makeEmptyPurse();
   // Bob receives the invitation from Alice
   // He doesn't trust alice, so he wants inspect the invitation
   // claimedInvitation === option
-  const claimedInvitation = await E(invitationIssuer).claim(bobInvitation);
+  const claimedInvitation = await claim(recoveryPurse, bobInvitation);
   const details = await E(zoe).getInvitationDetails(claimedInvitation);
   const { customDetails } = details;
   assert(typeof customDetails === 'object');
