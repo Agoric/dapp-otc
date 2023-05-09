@@ -8,8 +8,7 @@ import url from 'url';
 import { resolve as importMetaResolve } from 'import-meta-resolve';
 
 import { E } from '@endo/far';
-import { makeFakeVatAdmin } from '@agoric/zoe/tools/fakeVatAdmin.js';
-import { makeZoeKit } from '@agoric/zoe';
+import { makeZoeForTest } from '@agoric/zoe/tools/setup-zoe.js';
 import { makeIssuerKit, AssetKind, AmountMath } from '@agoric/ertp';
 // TODO `claim`,`combine`, `split`, and `splitMany' are deprecated.
 // Stop using them.
@@ -17,10 +16,10 @@ import { claim } from '@agoric/ertp/src/legacy-payment-helpers.js';
 
 import buildManualTimer from '@agoric/zoe/tools/manualTimer.js';
 
-test('contract with valid offers', async t => {
+test('contract with valid offers', async (t) => {
   // Outside of tests, we should use the long-lived Zoe on the
   // testnet. In this test, we must create a new Zoe.
-  const { zoeService: zoe } = makeZoeKit(makeFakeVatAdmin().admin);
+  const zoe = makeZoeForTest();
 
   // Alice is going to want to trade a magical wand item for some fake
   // currency, moola
