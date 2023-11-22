@@ -1509,6 +1509,7 @@ buffer@^5.5.0:
 
 bufferfromfile@agoric-labs/BufferFromFile#Agoric-built:
   version "0.4.360"
+  uid "620ad350bfa6789b297ebab937e22d582fbd19ba"
   resolved "https://codeload.github.com/agoric-labs/BufferFromFile/tar.gz/620ad350bfa6789b297ebab937e22d582fbd19ba"
   dependencies:
     "@mapbox/node-pre-gyp" "1.0.5"
@@ -2396,6 +2397,7 @@ eslint@^7.32.0:
 
 esm@agoric-labs/esm#Agoric-built:
   version "3.2.25"
+  uid "3603726ad4636b2f865f463188fcaade6375638e"
   resolved "https://codeload.github.com/agoric-labs/esm/tar.gz/3603726ad4636b2f865f463188fcaade6375638e"
 
 espree@^7.3.0, espree@^7.3.1:
@@ -3727,9 +3729,9 @@ n-readlines@^1.0.0:
   integrity sha512-ISDqGcspVu6U3VKqtJZG1uR55SmNNF9uK0EMq1IvNVVZOui6MW6VR0+pIZhqz85ORAGp+4zW+5fJ/SE7bwEibA==
 
 nan@^2.14.1:
-  version "2.14.1"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.1.tgz#d7be34dfa3105b91494c3147089315eff8874b01"
-  integrity sha512-isWHgVjnFjh2x2yuJ/tj3JbwoHu3UC2dX5G/88Cm24yB6YopVgxvBObDY7n5xW6ExmFhJpSEQqFPvq9zaXc8Jw==
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
+  integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
 
 napi-build-utils@^1.0.1:
   version "1.0.2"
@@ -3777,9 +3779,9 @@ node-gyp@8.1.0:
     which "^2.0.2"
 
 node-lmdb@^0.9.5:
-  version "0.9.6"
-  resolved "https://registry.yarnpkg.com/node-lmdb/-/node-lmdb-0.9.6.tgz#b7bab03f8cf154a5df90f3a861239adb65ff3dbe"
-  integrity sha512-zpYvuTWoyGY/G9/0kLZyJlEnnvm4U1t7r1q1akX4vvwviuxGAysW9hN77YwbijvWN7cIC1GRp3ptMkJaUxXKHw==
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/node-lmdb/-/node-lmdb-0.9.7.tgz#f518be2fd5922f445f9d11537753a5e938f1c5a1"
+  integrity sha512-RyYSB3kTByjp1yCKE474yuoBxi/+8kKvjYFOVuDBVoS31D6JvzjwMgNnQrMwoHSbZ6RwucW7jmF93Cm9ltziJQ==
   dependencies:
     nan "^2.14.1"
     node-gyp-build "^4.2.3"
